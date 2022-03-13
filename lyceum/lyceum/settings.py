@@ -1,9 +1,21 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+
+# * Load environment
+
+# ./lyceum/lyceum/.env
+if os.path.exists(dotenv_path := os.path.join(os.path.dirname(__file__), '.env')):
+    load_dotenv(dotenv_path)
+
+SECRET_KEY, DEBUG = os.environ.get('SECRET_KEY'), os.environ.get('DEBUG')
+
+
+# * Std Django settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = '$HHj{TmP#omTmm0RTTrfJWGjj53k{htD@K*Vn%joV6BR2|uIggRXWefim%k5jeSLf1Cy3gVmE%4hQ1j{'
-
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -74,15 +86,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE, TIME_ZONE = 'ru', 'UTC'
 
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+USE_I18N, USE_L10N, USE_TZ = True, True, True
 
 STATIC_URL = '/static/'
 
