@@ -10,7 +10,10 @@ from dotenv import load_dotenv
 if os.path.exists(dotenv_path := os.path.join(os.path.dirname(__file__), '.env')):
     load_dotenv(dotenv_path)
 
-SECRET_KEY, DEBUG = os.environ.get('SECRET_KEY'), os.environ.get('DEBUG')
+DEBUG = os.environ['DEBUG']
+
+SECRET_KEY = os.environ['SECRET_KEY']
+
 
 
 # * Std Django settings
