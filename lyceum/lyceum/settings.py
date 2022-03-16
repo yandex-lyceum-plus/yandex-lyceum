@@ -3,9 +3,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 
-
-# * Load environment
-
 # ./lyceum/lyceum/.env
 if os.path.exists(dotenv_path := os.path.join(os.path.dirname(__file__), '.env')):
     load_dotenv(dotenv_path)
@@ -13,7 +10,6 @@ if os.path.exists(dotenv_path := os.path.join(os.path.dirname(__file__), '.env')
 DEBUG = os.environ['DEBUG']
 
 SECRET_KEY = os.environ['SECRET_KEY']
-
 
 
 # * Std Django settings
