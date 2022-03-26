@@ -9,7 +9,7 @@ class Published(models.Model):
 
 
 class Slug(models.Model):
-    slug = models.SlugField(unique=True, max_length=200)
+    slug = models.SlugField(verbose_name='Идентификатор', unique=True, max_length=200)
 
     class Meta:
         abstract = True

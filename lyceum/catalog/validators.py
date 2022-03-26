@@ -11,5 +11,5 @@ def validate_required_words(value: str):
 
 
 def validate_words_count(value: str):
-    if value.count(' ') < 1:
-        raise ValidationError('В описании товара должно быть как минимум 2 слова')
+    if len(value.split()) < 2:
+        raise ValidationError('Необходимо минимум 2 слова. Убедитесь, что вы разделяете слова с помощью пробела " "')
