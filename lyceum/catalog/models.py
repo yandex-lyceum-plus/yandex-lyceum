@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from catalog.validators import validate_required_words, validate_words_count
+from catalog.validators import validate_required_words, validate_words_count, validate_weight
 from core.models import Published, Slug
 
 
@@ -20,7 +20,7 @@ class Item(Published):
 
 
 class Category(Slug, Published):
-    weight = models.PositiveSmallIntegerField(verbose_name='Вес', default=100)
+    weight = models.PositiveSmallIntegerField(verbose_name='Вес', default=100, validators=(validate_weight, ))
 
     def __str__(self) -> str:
         return self.slug

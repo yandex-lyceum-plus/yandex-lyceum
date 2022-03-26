@@ -13,3 +13,9 @@ def validate_required_words(value: str):
 def validate_words_count(value: str):
     if len(value.split()) < 2:
         raise ValidationError('Необходимо минимум 2 слова. Убедитесь, что вы разделяете слова с помощью пробела " "')
+
+
+def validate_weight(value: int):
+    if value >= 32767:
+        raise ValidationError('Максимальное возможное значение - 32766')
+
