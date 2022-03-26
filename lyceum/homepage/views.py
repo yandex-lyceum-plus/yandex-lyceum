@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
-from http import HTTPStatus
+from django.http import HttpResponse
 
 
 def home(request):
