@@ -1,0 +1,28 @@
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link px-2 text-muted">Главная</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'item_list' %}" class="nav-link px-2 text-muted">Каталог</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'description' %}" class="nav-link px-2 text-muted">О нас</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'description' %}#contacts" class="nav-link px-2 text-muted">Контакты</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'user_list' %}" class="nav-link px-2 text-muted">Пользователи</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'signup' %}" class="nav-link px-2 text-muted">Регистрация</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'profile' %}" class="nav-link px-2 text-muted">Профиль</a>
+        </li>
+    </ul>
+    <p class="text-center text-muted">
+        © <span style="font-family: 'Neucha', cursive;">микемка</span>, 2022
+    </p>
+</footer>

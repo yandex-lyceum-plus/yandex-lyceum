@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О нас{% endblock %}
+
+{% block head_extra %}
+<style>
+#lead .img {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>О нас</h1>
+    <section class="row row-cols-1 row-cols-sm-1 row-cols-lg-2">
+        <div class="col mb-3">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'img/job-5382501_1920.jpg' %}" class="d-block w-100 rounded" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/startup-3267505_1920.jpg' %}" class="d-block w-100 rounded" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/woman-4702060_1920.jpg' %}" class="d-block w-100 rounded" alt="">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col mb-3">
+            <p class="display-5">Наша команда —</p>
+            <p>это настоящие фанаты своего дела, объединенные стремлением дарить людям самые светлые эмоции, делать их счастливее. Нашу команду отличает профессионализм, трудолюбие, большой опыт и желание развиваться, предоставляя нашим клиентам лучший сервис каждый день.</p>
+        </div>
+    </section>
+
+    <article class="text-center mt-2">
+        <h2 class="display-5">Гарантия качества —</h2>
+        <p>Наши клиенты — залог успеха компании</p>
+        <section class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-3 lead mt-3" id="lead">
+            <div class="col">
+                <div class="img">
+                    <img src="{% static 'img/earth.png' %}" alt="Earth icon" class="img-fluid rounded">
+                </div>
+                <p>Работаем по всему миру</p>
+            </div>
+            <div class="col">
+                <div class="img">
+                    <img src="{% static 'img/clock.png' %}" alt="Clock icon" class="img-fluid rounded">
+                </div>
+                <p>Доставляем точно в срок</p>
+            </div>
+            <div class="col">
+                <div class="img">
+                    <img src="{% static 'img/shield.png' %}" alt="Shield icon" class="img-fluid rounded">
+                </div>
+                <p>Конфиденциально</p>
+            </div>
+            <div class="col">
+                <div class="img">
+                    <img src="{% static 'img/love.png' %}" alt="Heart icon" class="img-fluid rounded">
+                </div>
+                <p>С любовью к клиентам</p>
+            </div>
+        </section>
+    </article>
+
+    <section class="mt-5" id="contacts">
+        <h2 class="h1">Наши контакты</h2>
+        <p class="mb-0">Звоните нам: <a href="tel:+12344567890">+1 (234) 456 78-90</a></p>
+        <p class="mb-0">Пишите нам: <a href="mailto:admin@example.com">admin@example.com</a></p>
+        <p>Ищите нас в VK: <a href="https://vk.com/yandex.academy">@yandex.academy</a></p>
+    </section>
+</div>
+{% endblock %}
+ 
+
+<!--
+
+<a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/security" title="security icons">Security icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/love" title="love icons">Love icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/world" title="world icons">World icons created by Freepik - Flaticon</a>
+
+-->

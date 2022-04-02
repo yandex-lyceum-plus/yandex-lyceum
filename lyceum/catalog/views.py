@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
 
 
 def item_list(request):
-    return HttpResponse('Список элементов')
+    return render(request, 'catalog/item_list.html')
 
 
 def item_detail(request, pk):
-    return HttpResponse('Подробно элемент')
+    return render(request, 'catalog/item_detail.html', {"pk": pk})  # Простите меня пожалуйста ^-^
