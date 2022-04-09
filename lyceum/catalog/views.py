@@ -1,13 +1,12 @@
 from django.shortcuts import get_object_or_404, render
-from django.db.models import Prefetch
-from catalog.models import Category, Item, Tag
+from catalog.models import Item, Category
 
 
 def item_list(request):
-    items = Item.objects.published_item_and_tags()
+    categories = Category.objects.published_items_and_categories()
 
     return render(request, 'catalog/item_list.html', {
-        'items': items
+        'categories': categories
     })
 
 

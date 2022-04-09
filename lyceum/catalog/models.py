@@ -6,7 +6,7 @@ from core.models import Published, Slug, Name
 
 
 class CategoryManager(models.Manager):
-    def published_category_and_items(self):
+    def published_items_and_categories(self):
         return self.filter(is_published=True).prefetch_related(
             Prefetch('items', queryset=Item.objects.published_item_and_tags())
         )
@@ -44,7 +44,7 @@ class Category(Slug, Published, Name):
     weight = models.PositiveSmallIntegerField(verbose_name='Вес', default=100, validators=(validate_weight, ))
     
     objects = CategoryManager()
-
+    
     def __str__(self) -> str:
         return self.slug
 
