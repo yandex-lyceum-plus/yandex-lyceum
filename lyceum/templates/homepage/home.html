@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block head_extra %}
+<style>
+    code {
+        color: var(--bs-warning);
+    }
+</style>
+{% endblock %}
+
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
@@ -9,10 +17,12 @@
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="lyceum_font">Главная страница</h1>
-                <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ipsa modi rerum, veritatis deleniti, assumenda, libero fuga expedita explicabo autem consequuntur asperiores atque porro unde dolorem? Veniam numquam unde blanditiis.</p>
+                <p class="lead text-muted">Ознакомьтесь с рекомендованными товарами<br>По промокоду <code>new_2016_year</code> доступна скидка в размере 15%</p>
             </div>
         </div>
     </section>
+    
+    {% include 'core/item_list_base.html' %}
 </div>
 
 {% endblock %}

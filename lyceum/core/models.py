@@ -13,3 +13,10 @@ class Slug(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Name(models.Model):
+    name = models.CharField(verbose_name='Название', max_length=25, blank=True, default='')
+
+    class Meta:
+        abstract = True
