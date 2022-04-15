@@ -21,3 +21,6 @@ class Rating(models.Model):
         verbose_name = 'Оценка'
         verbose_name_plural = 'Оценки'
         constraints = (UniqueConstraint(name='rating_unique', fields=('item', 'user')), )
+    
+    def __str__(self):
+        return f'{self.item} | {self.user}'

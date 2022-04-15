@@ -1,7 +1,3 @@
-{% load homepage_tags %}
-
-{% if items %}
-
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 {% for item in items %}
     <div class="col">
@@ -9,23 +5,17 @@
             <div class="card-body">
                 <h5 class="card-title">{{ item.name }}</h5>
                 
-                <p class="card-text">{{ item.text|ten_words }}</p>
+                <p class="card-text">{{ item.text|truncatewords:10 }}</p>
 
-                <p>
-                    {% for tag in item.tags.all %}
-                    <span class="badge bg-warning text-dark">{{ tag.name|default:tag.slug }}</span>
-                    {% endfor %}
-                </p>
+                <p><span class="badge bg-warning text-dark">
+                    {{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}
+                </span></p>
 
                 <a href="{% url 'item_detail' pk=item.id %}" class="btn btn-dark">Подробнее</a>
             </div>
         </div>
     </div>
+{% empty %}
+    <div class="alert alert-danger" role="alert">Список пуст. Эй, админ, добавь инфы!</div>
 {% endfor %}
 </div>
-
-{% else %}
-
-<div class="alert alert-danger" role="alert">Список пуст. Эй, админ, добавь инфы!</div>
-
-{% endif %}

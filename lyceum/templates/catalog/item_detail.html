@@ -5,16 +5,57 @@
 {% block content %}
 
 <div class="container mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'item_list' %}#{{ item.category.slug }}" class="text-warning">{{ item.category.name|default:item.category.slug }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ item.name }}</li>
+    </ol>
+
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title">{{ item.name }}</h5>
-            <p class="lead card-text text-warning">{{ item.category.name|default:item.category.slug }}</p>
+            <h1 class="card-title h2">{{ item.name }}</h5>
+            <p><span class="badge bg-warning text-dark">{{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}</span></p>
             <p class="card-text">{{ item.text }}</p>
-            <p class="card-text">
-                {% for tag in item.tags.all %}
-                <span class="badge bg-danger">{{ tag.name|default:tag.slug }}</span>
-                {% endfor %}
-            </p>
+            
+
+            <section class="mt-4">
+                <h2>Отзывы</h2>
+                <p class="lead">
+                {% if stars.star__avg %}
+                    {{ stars.star__avg }} <span class="text-warning">звезд</span> / <span class="text-warning">оценок</span> {{ stars.star__count }}
+                {% else %}
+                    Товар еще <span class="text-warning">никто</span> не оценил. Будьте первым!
+                {% endif %}
+                </p>
+
+                {% if request.user.is_authenticated %}
+                <div class="mt-4">
+                    <h3 class="h2">Оценить</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for i in variants %}
+                            <div class="form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="rate"
+                                        value="{{ i.0 }}"
+                                        id="RadioRate{{ forloop.counter0 }}"
+                                        {% if forloop.counter0 == user_star %} checked {% endif %}
+                                >
+                                <label class="form-check-label" for="RadioRate{{ forloop.counter0 }}">
+                                    {{ i.1 }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-dark mt-2">Оценить</button>
+                    </form>
+                </div>
+                {% else %}
+                <article class="mb-3">
+                    <a href="{% url 'signup' %}" class="btn btn-dark">Войти или зарегистрироваться</a>
+                </article>
+                {% endif %}
+            </section>
         </div>
     </div>
 </div>

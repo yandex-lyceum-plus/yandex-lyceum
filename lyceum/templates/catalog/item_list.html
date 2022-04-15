@@ -5,11 +5,9 @@
 {% block content %}
 
 <div class="container mt-3">
-    <h1 class="mb-3">Каталог</h1>
-
     {% for category in categories %}
-    <section>
-        <h2 class="text-center">{{ category.name }}</h2>
+    <section class="mt-3">
+        <h2 class="display-6" id="{{ category.slug }}">{{ category.name|default:category.slug }}</h2>
         {% include 'core/item_list_base.html' with items=category.items.all %}
     </section>
     {% endfor %}

@@ -2,7 +2,7 @@ from django.forms import ValidationError
 
 
 def validate_required_words(value: str):
-    REQUIRED_WORDS = {'превосходно', 'роскошно'}
+    REQUIRED_WORDS = {'превосходн', 'роскошн', 'замечательн'}
     for word in REQUIRED_WORDS:
         if word in value.lower():
             break
