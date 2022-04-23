@@ -1,11 +1,40 @@
 {% extends 'base.html' %}
 
-{% block title %}Список пользователей{% endblock %}
+{% block title %}
+    Информация о 
+    {% if user.first_name or user.last_name %}
+        {{ user.first_name }} {{ user.last_name }}
+    {% else %}
+        {{ user.username }}
+    {% endif %}
+{% endblock %}
 
 {% block content %}
 
 <div class="container mt-3">
-    <h1>Информация о пользователе</h1>
+    <h1>
+        Информация о 
+        {% if user.first_name or user.last_name %}
+            {{ user.first_name }} {{ user.last_name }}
+        {% else %}
+            {{ user.username }}
+        {% endif %}
+    </h1>
+
+    {% if user.first_name or user.last_name %}
+    <p class="lead">Имя: {{ user.first_name }} {{ user.last_name }}</p>
+    {% endif %}
+
+    {% if user.profile.birthday %}
+    <p>День рождения: {{ user.profile.birthday }}</p>
+    {% endif %}
+
+    {% if items %}
+    <h3>Список любимых товаров</h3>
+    {% include 'core/item_list_base.html' %}
+    {% else %}
+    <h3>Любимых товаров нет</h3>
+    {% endif %}
 </div>
 
 {% endblock %}

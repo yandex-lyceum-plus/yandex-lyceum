@@ -5,11 +5,11 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
-    path('about/', include('about.urls')),
-    path('auth/', include('users.urls')),
     path('', include('homepage.urls')),
+    path('about/', include('about.urls')),
+    path('admin/', admin.site.urls),
+    path('auth/', include('users.urls')),
+    path('catalog/', include('catalog.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

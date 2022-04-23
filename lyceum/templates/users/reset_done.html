@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Сброс пароля{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Пароль восстановлен</h1>
+    <a class="btn btn-dark" href="{% url 'login' %}">Войти</a>
+</div>
+{% endblock %}

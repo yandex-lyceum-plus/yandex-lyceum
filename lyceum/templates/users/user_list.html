@@ -7,55 +7,11 @@
 <div class="container mt-3">
     <h1>Список пользователей</h1>
     <section>
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID132078878</strong> - 11000$
+        {% for user in users %}
+        <article class="bd-callout {% if user.is_superuser %}bd-callout-warning{% endif %}">
+            <a href="{{ user.pk }}">{{ user.username }}</a>{% if user.first_name or user.last_name %} - {{ user.first_name }} {{ user.last_name }}{% endif %}
         </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID848717582</strong> - 110$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID273256896</strong> - 700$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID194378348</strong> - 300$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID132078878</strong> - 11000$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID848717582</strong> - 110$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID273256896</strong> - 700$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID194378348</strong> - 300$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID132078878</strong> - 11000$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID848717582</strong> - 110$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID273256896</strong> - 700$
-        </article>
-
-        <article class="bd-callout bd-callout-warning">
-            <strong>UID194378348</strong> - 300$
-        </article>
-
-        
+        {% endfor %}
     </section>
 </div>
 

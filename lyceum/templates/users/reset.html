@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Регистрация{% endblock %}
+{% block title %}Сброс пароля{% endblock %}
 
 {% block content %}
 
 <div class="container mt-3">
-    <h1>Создайте новый аккаунт</h1>
+    <h1>Введите новый пароль</h1>
 
     <form method="post">
         {% csrf_token %}
@@ -21,7 +21,7 @@
         </section>
 
         <section id="buttons">
-            <button type="submit" class="btn btn-dark">Зарегистрироваться</button>
+            <button type="submit" class="btn btn-primary">Изменить пароль</button>
         </section>
     </form>
 </div>
