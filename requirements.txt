@@ -7,3 +7,4 @@ sqlparse==0.4.2
 toml==0.10.2
 django-cleanup==6.0.0
 sorl-thumbnail==12.8.0
+Pillow==9.1.0
