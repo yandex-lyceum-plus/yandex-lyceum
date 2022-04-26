@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404

@@ -46,6 +46,22 @@
                 </li>
                 {% endif %}
             </ul>
+            {% if birthday_people %}
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Именинники
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for user in birthday_people %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'user_list' %}{{ user.user.pk }}">{{ user.user.username }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </div>
   </nav>
