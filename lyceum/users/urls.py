@@ -3,12 +3,11 @@ from users import views
 
 
 urlpatterns = [
-    path('signup/', views.Signup.as_view(), name='signup'),
+    path('signup/', views.SignupPage.as_view(), name='signup'),
 
-    path('profile/', views.profile, name='profile'),
-    path('users/<int:pk>/', views.user_detail, name='user_detail'),
-    path('users/', views.user_list, name='user_list'),
-
+    path('profile/', views.ProfilePage.as_view(), name='profile'),
+    path('users/<int:pk>/', views.UserDetail.as_view(), name='user_detail'),
+    path('users/', views.UserList.as_view(), name='user_list'),
 
     path('login/', views.LoginView.as_view(), name='login'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
