@@ -1,13 +1,15 @@
+import imp
 from django import forms
 from django.contrib.auth.models import User
 from users.models import Profile
-
+from django.forms.fields import BooleanField
 
 class BaseForm(forms.BaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
+            if type(visible.field) != BooleanField:
+                visible.field.widget.attrs['class'] = 'form-control'
 
 
 class UserLoginForm(forms.Form, BaseForm):
@@ -39,7 +41,8 @@ class UserForm(forms.ModelForm, BaseForm):
 class ProfileForm(forms.ModelForm, BaseForm):
     class Meta:
         model = Profile
-        fields = ('birthday', )
+        fields = ('birthday', 'private_profile')
         widgets = {
-            'birthday': forms.DateInput(attrs={'type': 'date'})
+            'birthday': forms.DateInput(attrs={'type': 'date'}),
+            'private_profile': forms.CheckboxInput(attrs={'class': 'form-check-input'})
         }
