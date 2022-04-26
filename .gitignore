@@ -3,3 +3,4 @@
 **.DS_Store
 **/.env
 *.md
+**/db.sqlite3
