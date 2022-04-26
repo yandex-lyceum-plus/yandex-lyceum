@@ -11,6 +11,10 @@
                     {{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}
                 </span></p>
 
+                {% if item.upload %}
+                  <p><img class="img-fluid" src="{{ item.get_image_250x250.url }}"></p>
+                {% endif %}
+
                 <a href="{% url 'item_detail' pk=item.id %}" class="btn btn-dark">Подробнее</a>
             </div>
         </div>

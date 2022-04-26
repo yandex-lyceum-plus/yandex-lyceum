@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'debug_toolbar',
+    'sorl.thumbnail',
+    'django_cleanup.apps.CleanupConfig',
 )
 
 MIDDLEWARE = (
@@ -120,3 +122,6 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PWD')
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'

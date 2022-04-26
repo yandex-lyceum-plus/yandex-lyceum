@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404
 from catalog.validators import validate_required_words, validate_words_count, validate_weight
 from core.models import Published, Slug, Name
 from rating.models import Rating
+from sorl.thumbnail import get_thumbnail, ImageField
+from django.utils.safestring import mark_safe
 
 
 class CategoryManager(models.Manager):
@@ -85,6 +87,22 @@ class Item(Published):
         related_name='items',
         on_delete=models.RESTRICT
     )
+
+    upload = ImageField(upload_to='uploads/', null=True)
+
+    def get_image_250x250(self):
+        return get_thumbnail(self.upload, '250x250', crop='center', quality=51)
+
+    def get_image_400x300(self):
+        return get_thumbnail(self.upload, '400x300', crop='center', quality=51)
+
+    def img_tmb(self):
+        if self.upload:
+            return mark_safe(f'<img src="{self.upload.url}" width="50">')
+        return 'Нет изображений'
+
+    img_tmb.short_description = 'превью'
+    img_tmb.allow_tags = True
     
     objects = ItemManager()
 
