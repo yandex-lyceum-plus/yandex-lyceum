@@ -14,12 +14,8 @@
         <div class="card-body">
             <h1 class="card-title h2">{{ item.name }}</h5>
             <p><span class="badge bg-warning text-dark">{{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}</span></p>
-            {% if item.upload %}
-              <p><img class="img-fluid" src="{{ item.get_image_400x300.url }}"</p>
-            {% endif %}
             <p class="card-text">{{ item.text }}</p>
             
-
             <section class="mt-4">
                 <h2>Отзывы</h2>
                 <p class="lead">
@@ -62,6 +58,9 @@
                 {% endif %}
             </section>
         </div>
+        {% if item.upload %}
+        <img class="card-img-bottom" src="{{ item.get_image_400x300.url }}"/>
+        {% endif %}
     </div>
 </div>
 
