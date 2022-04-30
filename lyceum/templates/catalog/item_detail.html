@@ -14,6 +14,32 @@
         <div class="card-body">
             <h1 class="card-title h2">{{ item.name }}</h5>
             <p><span class="badge bg-warning text-dark">{{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}</span></p>
+            {% if item.upload %}
+              <p><img class="img-fluid" src="{{ item.get_image_400x300.url }}"></p>
+            {% endif %}
+            {% if gallery %}
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">   
+                {% for image in gallery %}
+                    {% if forloop.first %}
+                        <div class="carousel-item active" data-bs-interval="1000">
+                    {% else %}
+                        <div class="carousel-item" data-bs-interval="10000">
+                    {% endif %}
+                        <img src="{{ image.get_image_400x300.url }}" class="d-block w-100" alt="...">
+                    </div>
+                {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                  </div>
+            {% endif %}
             <p class="card-text">{{ item.text }}</p>
             
             <section class="mt-4">

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Avg, Count
-from catalog.models import Item, Category
+from catalog.models import Item, Category, Gallery
 from rating.models import Rating
 from django.views.generic import View, TemplateView
 
@@ -28,6 +28,7 @@ class ItemDetail(View):
             'variants': Rating.CHIOCES,
             'stars': item.ratings.exclude(star=0).aggregate(Avg('star'), Count('star')),
             'user_star': 5 - int(self.user_star),
+            'gallery': Gallery.objects.filter(item=item)
         })
 
     def post(self, request, pk):
