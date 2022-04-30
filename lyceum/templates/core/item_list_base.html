@@ -2,6 +2,9 @@
 {% for item in items %}
     <div class="col">
         <div class="card">
+            {% if item.upload %}
+            <img src="{{ item.get_image_250x250.url }}" class="card-img-top">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ item.name }}</h5>
                 
@@ -10,7 +13,6 @@
                 <p><span class="badge bg-warning text-dark">
                     {{ item.tags.all|join:'</span> <span class="badge bg-warning text-dark">' }}
                 </span></p>
-
                 <a href="{% url 'item_detail' pk=item.id %}" class="btn btn-dark">Подробнее</a>
             </div>
         </div>
