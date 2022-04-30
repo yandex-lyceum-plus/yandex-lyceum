@@ -1,7 +1,11 @@
 asgiref==3.5.0
 Django==3.2.13
+django-ckeditor==6.4.0
 django-cleanup==6.0.0
 django-debug-toolbar==3.2.4
+django-js-asset==2.0.0
+django-markitup==4.0.0
+Markdown==3.3.6
 Pillow==9.1.0
 python-dotenv==0.19.2
 pytz==2021.3

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'sorl.thumbnail',
     'django_cleanup.apps.CleanupConfig',
+    'markitup',
 )
 
 MIDDLEWARE = (
@@ -126,3 +127,6 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PWD')
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
+MARKITUP_SET = 'markitup/sets/markdown'
