@@ -7,7 +7,8 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthday = models.DateField(verbose_name='Дата рождения', null=True, blank=True)
-
+    private_profile = models.BooleanField(verbose_name='Приватность профиля', default=False)
+    
     def __str__(self) -> str:
         return f'Username: {self.user.username} | Birthday: {self.birthday}'
 
