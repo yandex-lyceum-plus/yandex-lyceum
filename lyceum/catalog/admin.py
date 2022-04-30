@@ -1,5 +1,5 @@
 from django.contrib import admin
-from catalog.models import Item, Category, Tag
+from catalog.models import Item, Category, Tag, Gallery
 
 
 @admin.register(Item)
@@ -22,3 +22,9 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ('slug', 'name', 'weight', 'is_published')
     list_display_links = ('slug',)
     list_editable = ('is_published',)
+
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('item', 'item_image')
+    list_display_links = ('item',)

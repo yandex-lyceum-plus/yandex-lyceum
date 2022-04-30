@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+from tabnanny import verbose
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Prefetch
@@ -142,3 +144,16 @@ class Tag(Slug, Published, Name):
     class Meta:
         verbose_name = 'тег'
         verbose_name_plural = 'теги'
+
+
+class Gallery(models.Model):
+    item_image = models.ImageField(upload_to="uploads/", null=True)
+    item = models.ForeignKey(Item, on_delete=models.PROTECT, verbose_name="Товар", default=None)
+
+
+    class Meta:
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изображения"
+
+    def get_image_400x300(self):
+        return get_thumbnail(self.item_image, '400x300', crop='center', quality=51)
